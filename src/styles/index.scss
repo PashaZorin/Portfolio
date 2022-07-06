@@ -1,0 +1,27 @@
+@import "./config";
+body {
+  font-family: "Montserrat", sans-serif;
+}
+.button {
+  background: $green;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  height: 60px;
+  width: 270px;
+  color: $white;
+  font-weight: 700;
+  font-size: 15px;
+  text-transform: uppercase;
+  transition: all 0.1s ease-in;
+  &:hover {
+    border: 2px solid $primary;
+    cursor: pointer;
+  }
+  &:active {
+    background-color: $primary;
+  }
+}
+.conteiner {
+  width: 1169px;
+  margin: 0 auto;
+}

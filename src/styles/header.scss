@@ -1,0 +1,31 @@
+@import "./config";
+.header {
+  padding: 18px 0;
+  background-color: $primary;
+  &__conteiner {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__menu-btn {
+    width: 170px;
+    height: 38px;
+    &:hover {
+      border: 2px solid #ffffff;
+    }
+    &:active {
+      background-color: $white;
+
+      color: $primary;
+    }
+  }
+  &__menu-conteiner {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+  }
+  &__menu {
+    display: flex;
+    gap: 36px;
+    color: $white;
+  }
+}

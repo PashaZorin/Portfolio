@@ -1,0 +1,35 @@
+@import "./config";
+.about {
+  &__conteiner {
+    margin-top: 214px;
+    display: flex;
+  }
+  &__content {
+    width: 478px;
+    position: relative;
+  }
+  &__content-sphere {
+    position: absolute;
+    left: -84px;
+    top: -25px;
+  }
+  &__content-sphere {
+    //position: absolute;
+    //left: -84px;
+    //top: -25px;
+  }
+  &__content-title {
+    font-weight: 900;
+    font-size: 50px;
+    line-height: 125%;
+    color: #484848;
+    margin-bottom: 53px;
+  }
+  &__content-text {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    color: #111111;
+    margin-bottom: 45px;
+  }
+}
