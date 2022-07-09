@@ -1,0 +1,69 @@
+@import "./config.scss";
+.design {
+  width: 100%;
+  padding: 110px 0;
+  background-color: $secondary;
+  &__title {
+    margin-bottom: 84px;
+  }
+  &__item {
+    background-color: $white;
+    padding: 14px 70px 14px 56px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 175%;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  &__item-conteiner {
+    cursor: pointer;
+  }
+  &__item-title.open {
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 125%;
+    padding-bottom: 41px;
+    &::before {
+      background-color: $primary;
+    }
+  }
+
+  &__item-title {
+    padding-left: 40px;
+    transition: all 0.3s;
+    &::before {
+      content: " ";
+      top: 14px;
+      left: 48px;
+      width: 24px;
+      height: 24px;
+      background-color: $green;
+      position: absolute;
+      border-radius: 50%;
+    }
+  }
+  &__item-transcription.open {
+    display: block;
+    transform: translateY(0);
+    opacity: 1;
+    transition: all 0.5s;
+  }
+  &__item-transcription {
+    border-left: 1px solid #000000;
+    padding-left: 40px;
+    display: none;
+    transform: translateY(-500px);
+    opacity: 0;
+  }
+  &__item-errow.open {
+    transform: rotateX(180deg);
+  }
+  &__item-errow {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    transition: all 0.3s;
+  }
+}
