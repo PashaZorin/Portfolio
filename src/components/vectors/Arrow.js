@@ -1,9 +1,9 @@
 import React from "react";
 
-const Arrow = ({ className }) => {
+const Arrow = (props) => {
   return (
     <svg
-      className={className}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="26"
       height="14"

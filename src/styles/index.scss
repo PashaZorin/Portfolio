@@ -1,6 +1,7 @@
 @import "./config";
 body {
   font-family: "Montserrat", sans-serif;
+  overflow-x: hidden;
 }
 .button {
   background: $green;
@@ -24,13 +25,12 @@ body {
 .conteiner {
   width: 1169px;
   margin: 0 auto;
+  position: relative;
 }
 .title {
   font-weight: 800;
   font-size: 32px;
   line-height: 125%;
-
   text-align: center;
-
   color: #111111;
 }

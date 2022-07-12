@@ -2,7 +2,9 @@ import React from "react";
 import Button from "../Button";
 import "../../styles/aboutPage.scss";
 import Sphere from "../vectors/Sphere";
-import Market from "../vectors/Market";
+import market from "../../icons/market.svg";
+import imagWave from "../../icons/imgWave.svg";
+import pinkСircle from "../../icons/pinkСircle.svg";
 
 const AboutPage = () => {
   return (
@@ -10,11 +12,6 @@ const AboutPage = () => {
       <div className="conteiner about__conteiner ">
         <div className="about__content">
           <Sphere className="about__content-sphere" />
-          <img
-            src="../../images/aboutSection/layer.png"
-            alt="layer"
-            className="about__content-vawe"
-          />
           <h1 className="about__content-title">
             Разработка интернет-магазина с нуля за неделю
           </h1>
@@ -26,8 +23,16 @@ const AboutPage = () => {
           <Button text="заказать" />
         </div>
         <div className="about__images">
-          {/*<Market />*/}
-          <img src="../../images/aboutSection/market.png" alt="market" />
+          <img src={market} alt="market" className="about__images-market" />
+          <img className="about__images-wave" src={imagWave} alt="imagesWave" />
+          <div className="about__images-ellips">
+            <Sphere className="about__images-sphere" />
+            <img
+              className="about__images-pink"
+              src={pinkСircle}
+              alt="pinkСircle"
+            />
+          </div>
         </div>
       </div>
     </section>

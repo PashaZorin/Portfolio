@@ -42,8 +42,6 @@ const AboutDesign = () => {
   const [render, setRender] = useState(false);
 
   const setOpenItem = (id, e) => {
-    console.log("click ", e);
-
     setRender(!render);
     setItems(items, (items[id] = { ...items[id], isOpen: !items[id].isOpen }));
   };
@@ -54,17 +52,18 @@ const AboutDesign = () => {
         <h2 className="design__title title">
           Что входит в услугу по созданию дизайна интернет-магазина?
         </h2>
-
-        {items.map((el) => (
-          <DesignItem
-            key={el.id}
-            id={el.id}
-            title={el.title}
-            text={el.text}
-            isOpen={el.isOpen}
-            fun={setOpenItem}
-          />
-        ))}
+        <div className="design__content">
+          {items.map((el) => (
+            <DesignItem
+              key={el.id}
+              id={el.id}
+              title={el.title}
+              text={el.text}
+              isOpen={el.isOpen}
+              fun={setOpenItem}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

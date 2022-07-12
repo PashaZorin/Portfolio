@@ -1,5 +1,6 @@
 import React from "react";
 import AboutDesign from "./AboutDesign";
+import AboutDevelopment from "./AboutDevelopment";
 import AboutPage from "./AboutPage";
 
 const Main = () => {
@@ -7,6 +8,7 @@ const Main = () => {
     <main>
       <AboutPage />
       <AboutDesign />
+      <AboutDevelopment />
     </main>
   );
 };

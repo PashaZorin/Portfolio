@@ -1,22 +1,84 @@
 @import "./config";
 .about {
+  overflow: hidden;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 41px;
+    left: -150px;
+    width: 300px;
+    height: 180px;
+    border: 2px solid #67aefc;
+    border-radius: 50%;
+  }
+  &::after {
+    content: url(../icons/aboutLayer.svg);
+    position: absolute;
+    bottom: 75px;
+    left: 75px;
+  }
   &__conteiner {
-    margin-top: 214px;
+    padding: 92px 0 41px 0;
     display: flex;
   }
   &__content {
-    width: 478px;
     position: relative;
+    min-width: 550px;
+    margin-right: 60px;
+    &-sphere {
+      width: 53px;
+    }
   }
   &__content-sphere {
     position: absolute;
     left: -84px;
     top: -25px;
   }
-  &__content-sphere {
-    //position: absolute;
-    //left: -84px;
-    //top: -25px;
+
+  &__images {
+    position: relative;
+    background: url(../icons/imagesWave.svg) no-repeat;
+    background-position: left 60%;
+    position: relative;
+    &-ellips {
+      position: absolute;
+      width: 1220px;
+      height: 550px;
+      background-color: $secondary;
+      border-radius: 50%;
+      left: 49%;
+      bottom: 90px;
+      z-index: -1;
+    }
+    &-sphere {
+      width: 59px;
+      position: absolute;
+      top: 61%;
+      left: 26%;
+    }
+    &-wave {
+      position: absolute;
+      top: 26%;
+      left: 75%;
+    }
+    &-pink {
+      position: absolute;
+      top: 53%;
+      left: 33%;
+    }
+    &::before {
+      content: url(../icons/cylinder.svg);
+      position: absolute;
+      top: 0;
+      left: calc(50% - 57px);
+    }
+    &::after {
+      content: url(../icons/shapeCylinder278.svg);
+      position: absolute;
+      bottom: 57px;
+      left: 80%;
+    }
   }
   &__content-title {
     font-weight: 900;
@@ -26,10 +88,12 @@
     margin-bottom: 53px;
   }
   &__content-text {
+    width: 432px;
+    display: block;
     font-weight: 400;
     font-size: 18px;
     line-height: 25px;
     color: #111111;
-    margin-bottom: 45px;
+    margin-bottom: 58px;
   }
 }
