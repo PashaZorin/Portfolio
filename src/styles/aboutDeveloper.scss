@@ -2,6 +2,19 @@
 .development {
   padding: 123px 0;
   overflow: hidden;
+  position: relative;
+  &::after {
+    content: url(../icons/aboutDevelopers/sphere.269.svg);
+    position: absolute;
+    top: 15%;
+    left: 10%;
+  }
+  &::before {
+    content: url(../icons/imagesWave.svg);
+    position: absolute;
+    bottom: 6%;
+    right: 12%;
+  }
 
   &__slider {
     margin-top: 82px;

@@ -56,15 +56,15 @@ const AboutDevelopment = () => {
   return (
     <section className="development ">
       <h2 className="development__title title">
-        Что входит в услугу по созданию дизайна интернет-магазина?
+        Этапы разработки интернет-магазина
       </h2>
       <div className="conteiner">
         <div
           className="development__slider "
           style={{ transform: `translateX(${sliderPosition}px` }}
         >
-          {initialState.map((item) => (
-            <div className="development__item">
+          {initialState.map((item, index) => (
+            <div className="development__item" key={index}>
               <div className="development__item-content">
                 <h3 className="development__item-title">{item.title}</h3>
                 <p className="development__item-text">{item.text}</p>

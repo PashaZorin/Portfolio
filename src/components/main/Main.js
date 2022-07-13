@@ -2,13 +2,15 @@ import React from "react";
 import AboutDesign from "./AboutDesign";
 import AboutDevelopment from "./AboutDevelopment";
 import AboutPage from "./AboutPage";
+import Exemples from "./Exemples";
 
 const Main = () => {
   return (
     <main>
-      <AboutPage />
+      {/*<AboutPage />
       <AboutDesign />
-      <AboutDevelopment />
+      <AboutDevelopment />*/}
+      <Exemples />
     </main>
   );
 };

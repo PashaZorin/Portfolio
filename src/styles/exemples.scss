@@ -1,0 +1,57 @@
+@import "./config";
+.exemples {
+  background-color: $secondary;
+  padding: 121px 0;
+  position: relative;
+  &:before {
+    position: absolute;
+    content: url(../icons/exemples/wave.svg);
+    top: 7%;
+    left: 10%;
+  }
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 27px;
+    margin-top: 51px;
+  }
+  &__item {
+    width: 567px;
+    height: 447px;
+    border-radius: 15px;
+    color: #fff;
+    transition: 0.3s;
+    position: relative;
+    div {
+      text-align: center;
+      opacity: 0;
+      transition: 0.3s;
+      position: absolute;
+      top: calc(50% - 29px);
+      left: calc(50% - 97px);
+    }
+    p {
+      font-weight: 700;
+      font-size: 21px;
+      line-height: 125%;
+    }
+    span {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 175%;
+    }
+    img {
+      width: 567px;
+    }
+    &:hover {
+      background: $primary;
+      img {
+        opacity: 0;
+      }
+      div {
+        opacity: 1;
+      }
+    }
+  }
+}
