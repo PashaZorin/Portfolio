@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import "../../styles/aboutDeveloper.scss";
-import TopRight from "../../icons/aboutDevelopers/TopRight.svg";
-import Cake from "../../icons/aboutDevelopers/Cake.svg";
-import ScanBarcode from "../../icons/aboutDevelopers/ScanBarcode.svg";
-import Group176 from "../../icons/aboutDevelopers/Group176.svg";
-import Group177 from "../../icons/aboutDevelopers/Group177.svg";
-
+import Cake from "../../images/aboutDevelopers/Сake.png";
+import Group176 from "../../images/aboutDevelopers/Group176.png";
+import Group177 from "../../images/aboutDevelopers/Group177.png";
+import ScanBarcode from "../../images/aboutDevelopers/ScanBarcode.png";
+import TopRight from "../../images/aboutDevelopers/TopRight.png";
 import Arrow from "../vectors/Arrow";
 
 const AboutDevelopment = () => {

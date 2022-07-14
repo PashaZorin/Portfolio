@@ -2,6 +2,8 @@
 body {
   font-family: "Montserrat", sans-serif;
   overflow-x: hidden;
+  max-width: 1920px;
+  margin: 0 auto;
 }
 .button {
   background: $green;

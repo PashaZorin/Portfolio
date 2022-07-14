@@ -4,13 +4,15 @@
   overflow: hidden;
   position: relative;
   &::after {
-    content: url(../icons/aboutDevelopers/sphere.269.svg);
+    content: url(../images/repeats/GreySphere.png);
+    width: 67px;
+    height: 67px;
     position: absolute;
     top: 15%;
     left: 10%;
   }
   &::before {
-    content: url(../icons/imagesWave.svg);
+    content: url(../images/repeats/waveBlue.png);
     position: absolute;
     bottom: 6%;
     right: 12%;

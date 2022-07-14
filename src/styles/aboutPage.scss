@@ -13,7 +13,7 @@
     border-radius: 50%;
   }
   &::after {
-    content: url(../icons/aboutLayer.svg);
+    content: url(../images/aboutPage/Layer.png);
     position: absolute;
     bottom: 75px;
     left: 75px;
@@ -38,7 +38,7 @@
 
   &__images {
     position: relative;
-    background: url(../icons/imagesWave.svg) no-repeat;
+    background: url(../images/repeats/waveBlue.png) no-repeat;
     background-position: left 60%;
     position: relative;
     &-ellips {
@@ -60,21 +60,22 @@
     &-wave {
       position: absolute;
       top: 26%;
-      left: 75%;
+      transform: rotateY(180deg);
+      left: 78%;
     }
-    &-pink {
+    &-purple {
       position: absolute;
       top: 53%;
       left: 33%;
     }
     &::before {
-      content: url(../icons/cylinder.svg);
+      content: url(../images/aboutPage/CylinderBlue.png);
       position: absolute;
       top: 0;
       left: calc(50% - 57px);
     }
     &::after {
-      content: url(../icons/shapeCylinder278.svg);
+      content: url(../images/aboutPage/CylinderPink.png);
       position: absolute;
       bottom: 57px;
       left: 80%;

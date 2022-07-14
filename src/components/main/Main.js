@@ -3,14 +3,16 @@ import AboutDesign from "./AboutDesign";
 import AboutDevelopment from "./AboutDevelopment";
 import AboutPage from "./AboutPage";
 import Exemples from "./Exemples";
+import MoreInformations from "./MoreInformations";
 
 const Main = () => {
   return (
     <main>
-      {/*<AboutPage />
+      <AboutPage />
       <AboutDesign />
-      <AboutDevelopment />*/}
+      <AboutDevelopment />
       <Exemples />
+      <MoreInformations />
     </main>
   );
 };

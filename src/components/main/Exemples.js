@@ -1,19 +1,44 @@
 import React from "react";
 import "../../styles/exemples.scss";
-import two from "../../icons/exemples/two.svg";
-import baby from "../../icons/exemples/baby.svg";
-import close from "../../icons/exemples/close.svg";
-import pexels from "../../icons/exemples/pexels.svg";
-import deva from "../../icons/exemples/deva.svg";
-import color from "../../icons/exemples/color.svg";
+import baby from "../../images/exemples/baby.png";
+import two from "../../images/exemples/two.png";
+import close from "../../images/exemples/close.png";
+import color from "../../images/exemples/color.png";
+import deva from "../../images/exemples/deva.png";
+import pexels from "../../images/exemples/pexels.png";
+
 const Exemples = () => {
   const initialState = [
-    { src: two, title: "Онлайн-магазин", subTitle: "для оптовых покупок" },
-    { src: baby, title: "Онлайн-магазин", subTitle: "для флористов" },
-    { src: close, title: "Онлайн-магазин", subTitle: "для парикмахеров" },
-    { src: pexels, title: "Онлайн-магазин", subTitle: "для визажистов" },
-    { src: deva, title: "Онлайн-магазин", subTitle: "для кондитеров" },
-    { src: color, title: "Онлайн-магазин", subTitle: "для художников" },
+    {
+      src: two,
+      title: "Онлайн-магазин",
+      subTitle: "для оптовых покупок",
+    },
+    {
+      src: baby,
+      title: "Онлайн-магазин",
+      subTitle: "для флористов",
+    },
+    {
+      src: close,
+      title: "Онлайн-магазин",
+      subTitle: "для парикмахеров",
+    },
+    {
+      src: pexels,
+      title: "Онлайн-магазин",
+      subTitle: "для парикмахеров",
+    },
+    {
+      src: deva,
+      title: "Онлайн-магазин",
+      subTitle: "для кондитеров",
+    },
+    {
+      src: color,
+      title: "Онлайн-магазин",
+      subTitle: "для художников",
+    },
   ];
   return (
     <section className="exemples">

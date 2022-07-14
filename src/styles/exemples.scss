@@ -5,11 +5,20 @@
   position: relative;
   &:before {
     position: absolute;
-    content: url(../icons/exemples/wave.svg);
-    top: 7%;
-    left: 10%;
+    content: url(../images/exemples/waveDecoration.png);
+    top: 17%;
+    left: 5%;
   }
+  &::after {
+    position: absolute;
+    content: url(../images/exemples/Sphere.png);
+    bottom: 17%;
+    right: 5%;
+  }
+
   &__content {
+    z-index: 1;
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

@@ -1,0 +1,36 @@
+@import "./config.scss";
+.informations {
+  position: relative;
+  padding: 135px 0 104px 0;
+
+  &__sphere {
+    width: 53px;
+    position: absolute;
+    top: 22%;
+    left: 11%;
+  }
+
+  &__conteiner {
+    display: flex;
+    gap: 35px;
+  }
+  &__content {
+    min-width: 670px;
+    margin-top: 79px;
+    h2 {
+      text-align: left;
+    }
+    p {
+      padding: 53px 0 45px 0;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 140%;
+      color: #111;
+    }
+  }
+  &__images {
+    &-mobile {
+      display: none;
+    }
+  }
+}
