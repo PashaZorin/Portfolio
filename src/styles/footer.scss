@@ -1,0 +1,38 @@
+@import "./config.scss";
+.footer {
+  background-color: $primary;
+  padding: 100px 0 80px 0;
+  color: #fff;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  &__conteiner {
+    display: flex;
+    gap: 107px;
+    margin-bottom: 120px;
+  }
+  &__logo {
+    transform: translateY(-14px);
+  }
+  &__information-main {
+    display: flex;
+    width: 700px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  &__contacts {
+    &-item {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 13px;
+    }
+  }
+  &__messengers {
+    display: flex;
+    gap: 37px;
+  }
+  &____copyright {
+    font-size: 18px;
+    line-height: 175%;
+  }
+}

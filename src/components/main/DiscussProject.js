@@ -47,13 +47,14 @@ const DiscussProject = () => {
             <Form className="discuss__form">
               <FastField name="name">
                 {({ field, meta }) => {
-                  console.log(meta);
                   return (
                     <Field
                       className={`discuss__form-input ${
                         meta.error && meta.touched ? "discuss__form-error" : ""
                       } `}
-                      placeholder={"Имя"}
+                      placeholder={`Имя ${
+                        meta.error && meta.touched ? ":" + meta.error : ""
+                      } `}
                       {...field}
                     />
                   );
@@ -66,7 +67,9 @@ const DiscussProject = () => {
                       className={`discuss__form-input ${
                         meta.error && meta.touched ? "discuss__form-error" : ""
                       } `}
-                      placeholder={"Telegram/Viber"}
+                      placeholder={`Telegram/Viber ${
+                        meta.error && meta.touched ? ":" + meta.error : ""
+                      } `}
                       {...field}
                     />
                   );
@@ -79,7 +82,9 @@ const DiscussProject = () => {
                       className={`discuss__form-input ${
                         meta.error && meta.touched ? "discuss__form-error" : ""
                       } `}
-                      placeholder={"Email"}
+                      placeholder={`Email ${
+                        meta.error && meta.touched ? ":" + meta.error : ""
+                      } `}
                       {...field}
                     />
                   );
