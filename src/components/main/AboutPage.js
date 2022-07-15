@@ -4,7 +4,7 @@ import "../../styles/aboutPage.scss";
 import Sphere from "../vectors/Sphere";
 import SpherePurple from "../../images/aboutPage/SpherePurple.png";
 import Market from "../../images/aboutPage/Market.png";
-import Layer from "../../images/aboutPage/Layer.png";
+import Layer from "../../images/repeats/Layer.png";
 
 const AboutPage = () => {
   return (

@@ -2,6 +2,7 @@ import React from "react";
 import AboutDesign from "./AboutDesign";
 import AboutDevelopment from "./AboutDevelopment";
 import AboutPage from "./AboutPage";
+import DiscussProject from "./DiscussProject";
 import Exemples from "./Exemples";
 import MoreInformations from "./MoreInformations";
 
@@ -13,6 +14,7 @@ const Main = () => {
       <AboutDevelopment />
       <Exemples />
       <MoreInformations />
+      <DiscussProject />
     </main>
   );
 };

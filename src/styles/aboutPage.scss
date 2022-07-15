@@ -13,10 +13,12 @@
     border-radius: 50%;
   }
   &::after {
-    content: url(../images/aboutPage/Layer.png);
+    content: url(../images/repeats/Layer.png);
+    transform: rotateY(180deg);
+    width: 171px;
     position: absolute;
     bottom: 75px;
-    left: 75px;
+    left: 100px;
   }
   &__conteiner {
     padding: 92px 0 41px 0;
@@ -60,8 +62,8 @@
     &-wave {
       position: absolute;
       top: 26%;
-      transform: rotateY(180deg);
-      left: 78%;
+
+      left: 76%;
     }
     &-purple {
       position: absolute;

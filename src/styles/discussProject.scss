@@ -1,0 +1,71 @@
+@import "./config";
+.discuss {
+  overflow: hidden;
+  background-color: $secondary;
+  padding: 180px 0 128px 0;
+  &__conteiner {
+    width: 470px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    &::after {
+      content: url(../images/discussProject/Wave.png);
+      position: absolute;
+      top: 24%;
+      right: -302px;
+    }
+    &::before {
+      content: url(../images/repeats/GreySphere.png);
+      position: absolute;
+      width: 66px;
+      top: 40%;
+      right: -295px;
+    }
+  }
+  &__subtitle {
+    padding: 30px 0;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 175%;
+  }
+  &__form {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    &-input {
+      font-size: 16px;
+      line-height: 20px;
+      font-family: "Montserrat", sans-serif;
+      background-color: #ffffff;
+      border: 1px solid #6eb1fb;
+      padding: 19px 14px;
+      border-radius: 10px;
+      color: #939393;
+      &:active &:focus {
+      }
+    }
+    &-input:focus {
+      border: 2px solid #6eb1fb;
+      color: #292929;
+      outline: none;
+    }
+    &-error {
+      border: 2px solid red;
+    }
+    &-button {
+      margin: 10px auto 0;
+    }
+  }
+  &__image {
+    &-desktop {
+      position: absolute;
+      top: 82px;
+      left: -380px;
+    }
+    &-mobile {
+      display: none;
+    }
+    //width: 111px;
+    //transform: rotateY(180deg);
+  }
+}
