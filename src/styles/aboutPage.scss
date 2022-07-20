@@ -23,13 +23,29 @@
   &__conteiner {
     padding: 92px 0 41px 0;
     display: flex;
+    //@media screen and (max-width: 1530px) {
+    //  flex-direction: column-reverse;
+    //}
   }
   &__content {
     position: relative;
     min-width: 550px;
     margin-right: 60px;
+    //@media screen and (max-width: 1530px) {
+    //  text-align: center;
+    //  margin-right: 0px;
+    //}
     &-sphere {
       width: 53px;
+    }
+    &-text {
+      width: 87%;
+      display: block;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 25px;
+      color: #111111;
+      margin-bottom: 58px;
     }
   }
   &__content-sphere {
@@ -40,47 +56,27 @@
 
   &__images {
     position: relative;
-    background: url(../images/repeats/waveBlue.png) no-repeat;
+    //background: url(../images/repeats/waveBlue.png) no-repeat;
     background-position: left 60%;
     position: relative;
+    &__market {
+      width: 216%;
+    }
     &-ellips {
       position: absolute;
       width: 1220px;
       height: 550px;
       background-color: $secondary;
       border-radius: 50%;
-      left: 49%;
-      bottom: 90px;
+      left: 41%;
+      bottom: 98px;
       z-index: -1;
-    }
-    &-sphere {
-      width: 59px;
-      position: absolute;
-      top: 61%;
-      left: 26%;
-    }
-    &-wave {
-      position: absolute;
-      top: 26%;
-
-      left: 76%;
-    }
-    &-purple {
-      position: absolute;
-      top: 53%;
-      left: 33%;
     }
     &::before {
       content: url(../images/aboutPage/CylinderBlue.png);
       position: absolute;
       top: 0;
-      left: calc(50% - 57px);
-    }
-    &::after {
-      content: url(../images/aboutPage/CylinderPink.png);
-      position: absolute;
-      bottom: 57px;
-      left: 80%;
+      left: calc(50% - 131px);
     }
   }
   &__content-title {
@@ -89,14 +85,5 @@
     line-height: 125%;
     color: #484848;
     margin-bottom: 53px;
-  }
-  &__content-text {
-    width: 432px;
-    display: block;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 25px;
-    color: #111111;
-    margin-bottom: 58px;
   }
 }

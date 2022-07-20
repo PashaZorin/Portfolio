@@ -2,6 +2,10 @@
 .header {
   padding: 18px 0;
   background-color: $primary;
+  &__logo {
+    //width: 21%;
+    padding-right: 30px;
+  }
   &__conteiner {
     display: flex;
     justify-content: space-between;

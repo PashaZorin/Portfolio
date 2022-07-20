@@ -39,12 +39,12 @@ const AboutDevelopment = () => {
 
   const handlerPrev = () => {
     if (sliderPosition < 0) {
-      setSliderPosition((prev) => (prev += 700));
+      setSliderPosition((prev) => (prev += 60));
     }
   };
   const handlerNext = () => {
-    if (sliderPosition > -2100) {
-      setSliderPosition((prev) => (prev -= 700));
+    if (sliderPosition > -180) {
+      setSliderPosition((prev) => (prev -= 60));
     }
   };
   return (
@@ -55,7 +55,7 @@ const AboutDevelopment = () => {
       <div className="conteiner">
         <div
           className="development__slider "
-          style={{ transform: `translateX(${sliderPosition}px` }}
+          style={{ transform: `translateX(${sliderPosition}%` }}
         >
           {initialState.map((item, index) => (
             <div className="development__item" key={index}>
