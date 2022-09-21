@@ -3,7 +3,6 @@
   padding: 18px 0;
   background-color: $primary;
   &__logo {
-    //width: 21%;
     padding-right: 30px;
   }
   &__conteiner {
@@ -13,12 +12,27 @@
   &__menu-btn {
     width: 170px;
     height: 38px;
+    @media (max-width: 1200px) {
+      width: 130px;
+    }
+    @media (max-width: 1024px) {
+      display: none;
+    }
+    @media (max-width: 769px) {
+      display: block;
+      width: 10px;
+      height: 10px;
+      background-color: $white;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
     &:hover {
-      border: 2px solid #ffffff;
+      border: 2px solid $white;
+      cursor: pointer;
     }
     &:active {
       background-color: $white;
-
       color: $primary;
     }
   }
@@ -29,7 +43,48 @@
   }
   &__menu {
     display: flex;
-    gap: 36px;
+    gap: 16px;
     color: $white;
+    li {
+      padding: 10px;
+      border: 2px solid transparent;
+      transition: all 0.3s;
+    }
+    @media (min-width: 768px) {
+      -webkit-overflow-scrolling: touch;
+      width: calc(100vw - 100%);
+      overflow: hidden;
+      li {
+        border-radius: 5px;
+
+        &:hover {
+          cursor: pointer;
+          border: 2px solid $green;
+
+          background-color: $green;
+        }
+        &:active {
+          border: 2px solid $white;
+        }
+      }
+    }
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      position: absolute;
+      background: aqua;
+      width: 100%;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      z-index: 2;
+      li {
+        &:hover {
+          border-bottom: 2px solid $white;
+        }
+      }
+    }
   }
 }
