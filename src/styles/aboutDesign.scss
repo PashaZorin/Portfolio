@@ -6,6 +6,9 @@
   background-color: $secondary;
   &__content {
     &::after {
+      @media (max-width: 1470px) {
+        content: "";
+      }
       content: url("../images/aboutDesign/bag.png");
       position: absolute;
       right: 100px;
@@ -17,7 +20,7 @@
   }
   &__item {
     background-color: $white;
-    padding: 14px 70px 14px 56px;
+    padding: 14px 24px 14px 56px;
     font-weight: 400;
     font-size: 18px;
     line-height: 175%;
@@ -25,54 +28,58 @@
     position: relative;
     overflow: hidden;
     margin-bottom: 10px;
-  }
-  &__item-conteiner {
-    cursor: pointer;
-  }
-  &__item-title.open {
-    font-weight: 700;
-    font-size: 21px;
-    line-height: 125%;
-    padding-bottom: 41px;
-    &::before {
-      background-color: $primary;
+    &-conteiner {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-  }
+    &-transcription.open {
+      &-conteiner {
+        align-items: baseline;
+      }
+    }
+    &-title {
+      padding-left: 40px;
+      transition: all 0.3s;
+      &::before {
+        content: " ";
+        top: 14px;
+        left: 48px;
+        width: 24px;
+        height: 24px;
+        background-color: $green;
+        position: absolute;
+        border-radius: 50%;
+      }
+      &.open {
+        font-weight: 700;
+        font-size: 21px;
+        line-height: 125%;
+        padding-bottom: 41px;
+        &::before {
+          background-color: $primary;
+        }
+      }
+    }
 
-  &__item-title {
-    padding-left: 40px;
-    transition: all 0.3s;
-    &::before {
-      content: " ";
-      top: 14px;
-      left: 48px;
-      width: 24px;
-      height: 24px;
-      background-color: $green;
-      position: absolute;
-      border-radius: 50%;
+    &-transcription {
+      border-left: 1px solid #000000;
+      padding-left: 40px;
+      display: none;
+      transform: translateY(-500px);
+      transition: all 1s;
+      &.open {
+        display: block;
+        transform: translateY(0);
+      }
     }
-  }
-  &__item-transcription.open {
-    display: block;
-    transform: translateY(0);
-    opacity: 1;
-    transition: all 0.5s;
-  }
-  &__item-transcription {
-    border-left: 1px solid #000000;
-    padding-left: 40px;
-    display: none;
-    transform: translateY(-500px);
-    opacity: 0;
-  }
-  &__item-errow.open {
-    transform: rotateX(180deg);
-  }
-  &__item-errow {
-    position: absolute;
-    top: 24px;
-    right: 24px;
-    transition: all 0.3s;
+
+    &-errow {
+      transition: all 0.3s;
+      &.open {
+        transform: rotateX(180deg);
+      }
+    }
   }
 }

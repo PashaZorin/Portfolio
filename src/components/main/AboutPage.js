@@ -25,7 +25,7 @@ const AboutPage = () => {
         </div>
         <div className="about__images">
           <img src={Cart} alt="market" className="about__images-market" />
-          <img src={Cart} alt="market" className="about__images-market" />
+          {/*<img src={Cart} alt="market" className="about__images-market" />*/}
           <div className="about__images-ellips"></div>
         </div>
       </div>
