@@ -25,6 +25,38 @@ body {
   &:active {
     background-color: $primary;
   }
+  &__slider-conteiner {
+    display: flex;
+    gap: 30px;
+    margin-left: calc(50% - 75px);
+    margin-top: 84px;
+  }
+
+  &__slider-prev,
+  &__slider-next {
+    border: 2px solid #67aefc;
+    border-radius: 15px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.3s;
+    &:active {
+      background-color: $primary;
+    }
+    &:active svg path {
+      fill: #fff;
+    }
+  }
+  &__slider-prev {
+    transform: rotate(90deg);
+  }
+  &__slider-next {
+    transform: rotate(-90deg);
+  }
 }
 .conteiner {
   width: 61%;
@@ -39,4 +71,8 @@ body {
   line-height: 125%;
   text-align: center;
   color: #111111;
+  @media (max-width: 768px) {
+    font-size: 23px;
+    color: $black;
+  }
 }

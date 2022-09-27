@@ -1,14 +1,19 @@
-import React, { useState } from "react";
-import "../../styles/aboutDeveloper.scss";
+import React, { useEffect, useRef, useState } from "react";
+import "../../styles/aboutDevelopment.scss";
 import Cake from "../../images/aboutDevelopers/Сake.png";
 import Group176 from "../../images/aboutDevelopers/Group176.png";
 import Group177 from "../../images/aboutDevelopers/Group177.png";
 import ScanBarcode from "../../images/aboutDevelopers/ScanBarcode.png";
 import TopRight from "../../images/aboutDevelopers/TopRight.png";
-import Arrow from "../vectors/Arrow";
+import BtnSlider from "./BtnSlider";
 
 const AboutDevelopment = () => {
   const initialState = [
+    {
+      src: Group177,
+      title: "5. Тестирование",
+      text: "Составление плана тестирования для определения ошибок. Проверка работы сайта и визуального восприятия для улучшения сайта. Также используются чек-листы для четкого определения ошибок и их устранения.",
+    },
     {
       src: TopRight,
       title: "1. Анализ",
@@ -34,31 +39,82 @@ const AboutDevelopment = () => {
       title: "5. Тестирование",
       text: "Составление плана тестирования для определения ошибок. Проверка работы сайта и визуального восприятия для улучшения сайта. Также используются чек-листы для четкого определения ошибок и их устранения.",
     },
+    {
+      src: TopRight,
+      title: "1. Анализ",
+      text: "Для того, чтобы онлайн-магазин приносил выгоду, перед его запуском необходимо провести анализ других предложений рынка, оценить конкурентов и найти наиболее удобное решение. ",
+    },
   ];
-  const [sliderPosition, setSliderPosition] = useState(0);
+  const [itemWidth, setSItemWidth] = useState(0);
+  const [positionSlider, setPositionSlider] = useState(0);
+  const [count, setCount] = useState(1);
+  const itemWidthRef = useRef();
+  const [transition, setTransition] = useState(0.3);
 
+  useEffect(() => {
+    const handlerWidth = () => {
+      setPositionSlider(-itemWidth - 25);
+      setCount(1);
+      setSItemWidth(itemWidthRef.current.offsetWidth);
+    };
+    window.addEventListener("resize", handlerWidth);
+    handlerWidth();
+    return () => window.removeEventListener("resize", handlerWidth);
+  }, [itemWidth]);
+  useEffect(() => {
+    setTimeout(() => {
+      if (count === 6) {
+        setTransition(0);
+        setCount(1);
+        setPositionSlider(-itemWidth - 25);
+        console.log("changes");
+      }
+    }, 200);
+    setTimeout(() => {
+      if (count === 0) {
+        setCount(5);
+        setPositionSlider((-itemWidth - 25) * (initialState.length - 2));
+        setTransition(0);
+        console.log("changes");
+      }
+    }, 200);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [count]);
   const handlerPrev = () => {
-    if (sliderPosition < 0) {
-      setSliderPosition((prev) => (prev += 60));
+    if (count > 0 && count < 6) {
+      setCount((prev) => count - 1);
+      setTransition(0.3);
+      if (itemWidth > 608) {
+        setPositionSlider((prev) => prev + itemWidth + 25);
+      } else setPositionSlider((prev) => prev + itemWidth + 25);
     }
   };
   const handlerNext = () => {
-    if (sliderPosition > -180) {
-      setSliderPosition((prev) => (prev -= 60));
+    if (count < 6 && count > 0) {
+      setTransition(0.3);
+      setCount(count + 1);
+      if (itemWidth <= 608) {
+        setPositionSlider((prev) => prev - itemWidth - 25);
+      } else setPositionSlider((prev) => prev - itemWidth);
+    }
+    if (count === 6) {
     }
   };
   return (
     <section className="development ">
-      <h2 className="development__title title">
-        Этапы разработки интернет-магазина
-      </h2>
-      <div className="conteiner">
+      <div className="conteiner development__conteiner">
+        <h2 className="title development__title">
+          Этапы разработки интернет-магазина
+        </h2>
         <div
           className="development__slider "
-          style={{ transform: `translateX(${sliderPosition}%` }}
+          style={{
+            transform: `translateX(${positionSlider}px)`,
+            transition: `${transition}s`,
+          }}
         >
           {initialState.map((item, index) => (
-            <div className="development__item" key={index}>
+            <div className="development__item" key={index} ref={itemWidthRef}>
               <div className="development__item-content">
                 <h3 className="development__item-title">{item.title}</h3>
                 <p className="development__item-text">{item.text}</p>
@@ -69,14 +125,8 @@ const AboutDevelopment = () => {
             </div>
           ))}
         </div>
-        <div className="development__btns-conteiner">
-          <button onClick={handlerPrev} className="development__button-prev">
-            <Arrow />
-          </button>
-          <button onClick={handlerNext} className="development__button-next">
-            <Arrow />
-          </button>
-        </div>
+
+        <BtnSlider handlerNext={handlerNext} handlerPrev={handlerPrev} />
       </div>
     </section>
   );
