@@ -30,6 +30,9 @@ body {
     gap: 30px;
     margin-left: calc(50% - 75px);
     margin-top: 84px;
+    @media (max-width: 768px) {
+      margin-top: 40px;
+    }
   }
 
   &__slider-prev,

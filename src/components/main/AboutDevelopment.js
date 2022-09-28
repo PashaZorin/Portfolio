@@ -69,7 +69,7 @@ const AboutDevelopment = () => {
         setPositionSlider(-itemWidth - 25);
         console.log("changes");
       }
-    }, 200);
+    }, 300);
     setTimeout(() => {
       if (count === 0) {
         setCount(5);
@@ -77,53 +77,49 @@ const AboutDevelopment = () => {
         setTransition(0);
         console.log("changes");
       }
-    }, 200);
+    }, 300);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [count]);
   const handlerPrev = () => {
     if (count > 0 && count < 6) {
       setCount((prev) => count - 1);
       setTransition(0.3);
-      if (itemWidth > 608) {
-        setPositionSlider((prev) => prev + itemWidth + 25);
-      } else setPositionSlider((prev) => prev + itemWidth + 25);
+      setPositionSlider((prev) => prev + itemWidth + 25);
     }
   };
   const handlerNext = () => {
     if (count < 6 && count > 0) {
       setTransition(0.3);
       setCount(count + 1);
-      if (itemWidth <= 608) {
-        setPositionSlider((prev) => prev - itemWidth - 25);
-      } else setPositionSlider((prev) => prev - itemWidth);
-    }
-    if (count === 6) {
+      setPositionSlider((prev) => prev - itemWidth - 25);
     }
   };
   return (
     <section className="development ">
-      <div className="conteiner development__conteiner">
-        <h2 className="title development__title">
-          Этапы разработки интернет-магазина
-        </h2>
-        <div
-          className="development__slider "
-          style={{
-            transform: `translateX(${positionSlider}px)`,
-            transition: `${transition}s`,
-          }}
-        >
-          {initialState.map((item, index) => (
-            <div className="development__item" key={index} ref={itemWidthRef}>
-              <div className="development__item-content">
-                <h3 className="development__item-title">{item.title}</h3>
-                <p className="development__item-text">{item.text}</p>
+      <div className="conteiner ">
+        <div className="development__conteiner">
+          <h2 className="title development__title">
+            Этапы разработки интернет-магазина
+          </h2>
+          <div
+            className="development__slider "
+            style={{
+              transform: `translateX(${positionSlider}px)`,
+              transition: `${transition}s`,
+            }}
+          >
+            {initialState.map((item, index) => (
+              <div className="development__item" key={index} ref={itemWidthRef}>
+                <div className="development__item-content">
+                  <h3 className="development__item-title">{item.title}</h3>
+                  <p className="development__item-text">{item.text}</p>
+                </div>
+                <div className="development__item-images">
+                  <img src={item.src} alt={item.src} />
+                </div>
               </div>
-              <div className="development__item-images">
-                <img src={item.src} alt={item.src} />
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         <BtnSlider handlerNext={handlerNext} handlerPrev={handlerPrev} />

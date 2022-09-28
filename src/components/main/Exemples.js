@@ -6,6 +6,7 @@ import close from "../../images/exemples/close.png";
 import color from "../../images/exemples/color.png";
 import deva from "../../images/exemples/deva.png";
 import pexels from "../../images/exemples/pexels.png";
+import BtnSlider from "./BtnSlider";
 
 const Exemples = () => {
   const initialState = [
@@ -40,6 +41,8 @@ const Exemples = () => {
       subTitle: "для художников",
     },
   ];
+
+  // сделать переключение по кнопке
   return (
     <section className="exemples">
       <div className="conteiner">
@@ -55,6 +58,7 @@ const Exemples = () => {
             </div>
           ))}
         </div>
+        <BtnSlider />
       </div>
     </section>
   );
