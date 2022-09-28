@@ -51,7 +51,8 @@ const AboutDevelopment = () => {
   const [transition, positionSlider, handlerPrev, handlerNext] = UseSlider(
     itemWidthRef,
     initialState.length,
-    25
+    25,
+    6
   );
 
   return (
