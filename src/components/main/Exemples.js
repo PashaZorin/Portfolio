@@ -107,21 +107,18 @@ const Exemples = () => {
 
   const [arrayState, setArrayState] = useState(initialState);
   const itemWidthRef = useRef();
-  const screenWidth = window.screen.width;
-  useEffect(() => {
-    if (screenWidth < 480) {
-      setArrayState(initialStateMob);
-    } else {
-      setArrayState(initialState);
-    }
-  }, [screenWidth]);
+  const [screenWidth, setScreenWidth] = useState(0);
 
   const [transition, positionSlider, handlerPrev, handlerNext] = UseSlider(
     itemWidthRef,
     arrayState.length / 2,
     14,
-    3
+    2
   );
+  useEffect(() => {
+    setScreenWidth(window.innerWidth);
+  }, [window.innerWidth]);
+  // make a shift array
   return (
     <section className="exemples">
       <div className="conteiner">

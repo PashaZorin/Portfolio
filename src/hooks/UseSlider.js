@@ -10,17 +10,14 @@ export const UseSlider = (itemWidthRef, arrayLength, gap, unmount) => {
     const handlerWidth = () => {
       setPositionSlider(-itemWidth - gap);
       setCount(1);
-      console.log(
-        itemWidthRef.current.offsetWidth,
-        "itemWidthRef.current.offsetWidth"
-      );
+
       setSItemWidth(itemWidthRef.current.offsetWidth);
     };
     window.addEventListener("resize", handlerWidth);
     handlerWidth();
     return () => window.removeEventListener("resize", handlerWidth);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [itemWidth]);
+  }, [window.innerWidth]);
   useEffect(() => {
     setTimeout(() => {
       if (count === unmount) {
@@ -32,8 +29,8 @@ export const UseSlider = (itemWidthRef, arrayLength, gap, unmount) => {
     }, 300);
     setTimeout(() => {
       if (count === 0) {
-        setCount(arrayLength - 2);
-        setPositionSlider((-itemWidth - gap) * (arrayLength - 2));
+        setCount(unmount - 1);
+        setPositionSlider((-itemWidth - gap) * unmount - 1);
         setTransition(0);
       }
     }, 300);

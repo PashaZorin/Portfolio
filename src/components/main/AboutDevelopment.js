@@ -54,7 +54,6 @@ const AboutDevelopment = () => {
     25,
     6
   );
-
   return (
     <section className="development ">
       <div className="conteiner ">
