@@ -8,10 +8,10 @@ export const UseSlider = (itemWidthRef, arrayLength, gap, unmount) => {
 
   useEffect(() => {
     const handlerWidth = () => {
-      setPositionSlider(-itemWidth - gap);
-      setCount(1);
-
       setSItemWidth(itemWidthRef.current.offsetWidth);
+      setPositionSlider(-itemWidthRef.current.offsetWidth - gap);
+      setCount(1);
+      console.log(count, "count");
     };
     window.addEventListener("resize", handlerWidth);
     handlerWidth();

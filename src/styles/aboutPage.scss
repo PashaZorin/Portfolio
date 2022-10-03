@@ -3,6 +3,11 @@
   overflow: hidden;
   position: relative;
   &::before {
+    @media (max-width: 1280px) {
+      width: 200px;
+      height: 120px;
+      left: -100px;
+    }
     @media (max-width: 768px) {
       top: 30px;
       border: 2px solid #75e169;
@@ -21,16 +26,27 @@
     z-index: -2;
   }
   &::after {
+    @media (max-width: 1280px) {
+      bottom: 25px;
+      left: 32px;
+    }
     @media (max-width: 768px) {
       top: 50%;
       transform: rotateY(45deg);
       left: 0px;
     }
-    @media (max-width: 568px) {
-      top: 40%;
-    }
+
     @media (max-width: 580px) {
-      top: 37%;
+      top: 45%;
+      width: 85px;
+      height: 50px;
+    }
+    @media (max-width: 480px) {
+      top: 380px;
+      left: 30px;
+    }
+    @media (max-width: 400px) {
+      top: 320px;
     }
     content: "";
     background: url(../images/repeats/Layer.png) no-repeat;
@@ -77,10 +93,10 @@
     }
     @media (max-width: 768px) {
       max-width: 100%;
-      //margin-top: 60px;
     }
     @media (max-width: 480px) {
-      margin-top: 30px;
+      margin-top: 60px;
+      //margin-top: 30px;
     }
     &-sphere {
       width: 53px;

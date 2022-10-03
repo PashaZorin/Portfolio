@@ -10,38 +10,6 @@ import BtnSlider from "./BtnSlider";
 import { UseSlider } from "../../hooks/UseSlider";
 
 const Exemples = () => {
-  const initialState = [
-    {
-      src: two,
-      title: "Онлайн-магазин",
-      subTitle: "для оптовых покупок",
-    },
-    {
-      src: baby,
-      title: "Онлайн-магазин",
-      subTitle: "для флористов",
-    },
-    {
-      src: close,
-      title: "Онлайн-магазин",
-      subTitle: "для парикмахеров",
-    },
-    {
-      src: pexels,
-      title: "Онлайн-магазин",
-      subTitle: "для парикмахеров",
-    },
-    {
-      src: deva,
-      title: "Онлайн-магазин",
-      subTitle: "для кондитеров",
-    },
-    {
-      src: color,
-      title: "Онлайн-магазин",
-      subTitle: "для художников",
-    },
-  ];
   const initialStateMob = [
     {
       src: pexels,
@@ -105,15 +73,14 @@ const Exemples = () => {
     },
   ];
 
-  const [arrayState, setArrayState] = useState(initialState);
   const itemWidthRef = useRef();
   const [screenWidth, setScreenWidth] = useState(0);
 
   const [transition, positionSlider, handlerPrev, handlerNext] = UseSlider(
     itemWidthRef,
-    arrayState.length / 2,
+    initialStateMob.length,
     14,
-    2
+    3
   );
   useEffect(() => {
     setScreenWidth(window.innerWidth);
@@ -134,7 +101,7 @@ const Exemples = () => {
               : {}
           }
         >
-          {arrayState.map((item, index) => (
+          {initialStateMob.map((item, index) => (
             <div key={index} className="exemples__item" ref={itemWidthRef}>
               <img src={item.src} alt="baby" />
               <div>
