@@ -2,7 +2,10 @@ import React from "react";
 
 const Button = ({ className, text, type }) => {
   return (
-    <button type={type} className={`button ${className}`}>
+    <button
+      type={type}
+      className={className ? `button ${className}` : "button"}
+    >
       {text}
     </button>
   );

@@ -9,6 +9,9 @@ const MoreInformations = () => {
   return (
     <section className="informations">
       <Sphere className="informations__sphere" />
+      <h2 className="title informations__title-mobile  ">
+        Необходимо больше информации?
+      </h2>
       <div className="informations__conteiner conteiner ">
         <div className="informations__content">
           <h2 className="title  ">Необходимо больше информации?</h2>

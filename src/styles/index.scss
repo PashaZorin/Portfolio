@@ -7,6 +7,7 @@ body {
   font-weight: 18px;
 }
 .button {
+  display: block;
   background: $green;
   border-radius: 5px;
   border: 2px solid transparent;
@@ -18,6 +19,12 @@ body {
   font-size: 15px;
   text-transform: uppercase;
   transition: all 0.1s ease-in;
+  @media (max-width: 768px) {
+    width: 80%;
+  }
+  @media (max-width: 480px) {
+    width: 100%;
+  }
   &:hover {
     border: 2px solid $primary;
     cursor: pointer;

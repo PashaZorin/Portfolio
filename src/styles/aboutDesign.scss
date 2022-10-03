@@ -4,6 +4,9 @@
   padding: 110px 0;
   position: relative;
   background-color: $secondary;
+  @media (max-width: 1024px) {
+    padding: 43px 0;
+  }
   &__content {
     &::after {
       @media (max-width: 1470px) {
@@ -17,6 +20,12 @@
   }
   &__title {
     margin-bottom: 84px;
+    @media (max-width: 768px) {
+      margin-bottom: 44px;
+    }
+    @media (max-width: 480px) {
+      margin-bottom: 17px;
+    }
   }
   &__item {
     background-color: $white;

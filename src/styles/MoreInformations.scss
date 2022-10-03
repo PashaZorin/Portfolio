@@ -2,7 +2,20 @@
 .informations {
   position: relative;
   padding: 135px 0 104px 0;
+  @media (max-width: 1024px) {
+    padding: 70px 0;
+  }
+  @media (max-width: 768px) {
+    padding: 43px 0 50px 0;
+  }
 
+  &__title-mobile {
+    display: none;
+    @media (max-width: 1024px) {
+      display: block;
+      padding: 0 20px;
+    }
+  }
   &__sphere {
     width: 53px;
     position: absolute;
@@ -13,12 +26,35 @@
   &__conteiner {
     display: flex;
     gap: 35px;
+    @media (max-width: 1200px) {
+      gap: 0;
+    }
+    @media (max-width: 1024px) {
+      flex-direction: column-reverse;
+    }
   }
   &__content {
     min-width: 58%;
     margin-top: 79px;
+    @media (max-width: 1200px) {
+      min-width: 50%;
+      margin-top: 0px;
+    }
+
     h2 {
       text-align: left;
+      @media (max-width: 1024px) {
+        display: none;
+      }
+    }
+    button {
+      @media (max-width: 1024px) {
+        margin: 0 auto;
+      }
+      //@media (min-width: 768px) and (max-width: 1024px) {
+      //  width: 50%;
+      //  margin: 0 auto;
+      //}
     }
     p {
       padding: 53px 0 45px 0;
@@ -26,11 +62,29 @@
       font-size: 18px;
       line-height: 140%;
       color: #111;
+      @media (max-width: 768px) {
+        padding: 29px 0;
+        font-style: 17px;
+      }
     }
   }
   &__images {
+    @media (max-width: 1024px) {
+      display: flex;
+      justify-content: center;
+      padding-top: 32px;
+    }
+    &-desktop {
+      display: block;
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
     &-mobile {
       display: none;
+      @media (max-width: 768px) {
+        display: block;
+      }
     }
   }
 }
