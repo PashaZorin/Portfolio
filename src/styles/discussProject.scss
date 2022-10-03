@@ -3,23 +3,52 @@
   overflow: hidden;
   background-color: $secondary;
   padding: 180px 0 128px 0;
+  position: relative;
+  @media (max-width: 1024px) {
+    padding: 42px 0;
+  }
+
   &__conteiner {
     width: 470px;
     margin: 0 auto;
     text-align: center;
-    position: relative;
+    @media (max-width: 768px) {
+      width: 80%;
+    }
     &::after {
-      content: url(../images/discussProject/Wave.png);
-      position: absolute;
-      top: 24%;
-      right: -302px;
+      @media (min-width: 1024px) {
+        content: "";
+        background: url(../images/discussProject/Wave.png);
+        width: 176px;
+        height: 83px;
+        background-size: cover;
+        position: absolute;
+        top: 38%;
+        right: 18%;
+      }
+
+      @media (max-width: 1350px) {
+        width: 99px;
+        height: 57px;
+      }
     }
     &::before {
-      content: url(../images/repeats/GreySphere.png);
-      position: absolute;
-      width: 66px;
-      top: 40%;
-      right: -295px;
+      @media (min-width: 1024px) {
+        content: "";
+        background: url(../images/repeats/GreySphere.png);
+        position: absolute;
+        background-size: cover;
+        width: 66px;
+        height: 66px;
+        top: 50%;
+        right: 18%;
+      }
+
+      @media (max-width: 1350px) {
+        width: 33px;
+        height: 33px;
+        top: 44%;
+      }
     }
   }
   &__subtitle {
@@ -59,13 +88,21 @@
   &__image {
     &-desktop {
       position: absolute;
-      top: 82px;
-      left: -380px;
+      top: 260px;
+      left: 13%;
+      @media (max-width: 1400px) {
+        width: 15%;
+      }
+      @media (max-width: 1024px) {
+        display: none;
+      }
     }
     &-mobile {
       display: none;
+      @media (max-width: 1024px) {
+        display: block;
+        margin: 42px auto 0;
+      }
     }
-    //width: 111px;
-    //transform: rotateY(180deg);
   }
 }
