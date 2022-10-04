@@ -50,9 +50,8 @@ const AboutDevelopment = () => {
   const itemWidthRef = useRef();
   const [transition, positionSlider, handlerPrev, handlerNext] = UseSlider(
     itemWidthRef,
-    initialState.length,
     25,
-    6
+    initialState.length - 1
   );
   return (
     <section className="development ">

@@ -78,38 +78,40 @@ const Exemples = () => {
 
   const [transition, positionSlider, handlerPrev, handlerNext] = UseSlider(
     itemWidthRef,
-    initialStateMob.length,
     14,
-    3
+    initialStateMob.length / 4
   );
   useEffect(() => {
     setScreenWidth(window.innerWidth);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [window.innerWidth]);
-  // make a shift array
+
   return (
     <section className="exemples">
       <div className="conteiner">
         <h2 className="title">Примеры онлайн-магазинов</h2>
-        <div
-          className="exemples__content"
-          style={
-            screenWidth < 480
-              ? {
-                  transform: `translateX(${positionSlider}px)`,
-                  transition: `${transition}s`,
-                }
-              : {}
-          }
-        >
-          {initialStateMob.map((item, index) => (
-            <div key={index} className="exemples__item" ref={itemWidthRef}>
-              <img src={item.src} alt="baby" />
-              <div>
-                <p>{item.title}</p>
-                <span>{item.subTitle}</span>
+        <div className="exemples__conteiner">
+          <div
+            className="exemples__content"
+            style={
+              screenWidth < 480
+                ? {
+                    transform: `translateX(${positionSlider}px)`,
+                    transition: `${transition}s`,
+                  }
+                : {}
+            }
+          >
+            {initialStateMob.map((item, index) => (
+              <div key={index} className="exemples__item" ref={itemWidthRef}>
+                <img src={item.src} alt="baby" />
+                <div>
+                  <p>{item.title}</p>
+                  <span>{item.subTitle}</span>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
       {screenWidth < 480 && (
