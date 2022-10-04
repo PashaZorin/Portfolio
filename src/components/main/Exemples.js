@@ -75,12 +75,23 @@ const Exemples = () => {
 
   const itemWidthRef = useRef();
   const [screenWidth, setScreenWidth] = useState(0);
+  const [positionStartSwipe, setPositionStartSwipe] = useState(0);
 
   const [transition, positionSlider, handlerPrev, handlerNext] = UseSlider(
     itemWidthRef,
     14,
     initialStateMob.length / 4
   );
+
+  const swipeSlider = (e) => {
+    console.log(e.changedTouches[0].screenX, "end");
+    console.log(positionStartSwipe, "start");
+    const res = positionStartSwipe - e.changedTouches[0].screenX;
+    res < 0 ? handlerPrev() : handlerNext();
+  };
+  const startSwipe = (e) => {
+    setPositionStartSwipe(e.changedTouches[0].screenX);
+  };
   useEffect(() => {
     setScreenWidth(window.innerWidth);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -90,7 +101,11 @@ const Exemples = () => {
     <section className="exemples">
       <div className="conteiner">
         <h2 className="title">Примеры онлайн-магазинов</h2>
-        <div className="exemples__conteiner">
+        <div
+          className="exemples__conteiner"
+          onTouchEnd={swipeSlider}
+          onTouchStart={startSwipe}
+        >
           <div
             className="exemples__content"
             style={
