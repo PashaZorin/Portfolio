@@ -3,6 +3,7 @@
   padding: 123px 0;
   overflow: hidden;
   position: relative;
+  user-select: none;
   @media (max-width: 768px) {
     padding: 43px 0;
   }
@@ -64,6 +65,8 @@
     align-items: center;
     gap: 30px;
     padding: 55px 10px;
+    user-select: none;
+    cursor: pointer;
     @media (max-width: 1800px) {
       gap: 0;
       padding: 10px;

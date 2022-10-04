@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "../../styles/aboutDevelopment.scss";
 import Cake from "../../images/aboutDevelopers/Сake.png";
 import Group176 from "../../images/aboutDevelopers/Group176.png";
@@ -53,10 +53,39 @@ const AboutDevelopment = () => {
     25,
     initialState.length - 1
   );
+  const [positionStartSwipe, setPositionStartSwipe] = useState(0);
+  const [startTimeSwipe, setStartTimeSwipe] = useState(0);
+
+  const swipeSlider = (e) => {
+    const res = positionStartSwipe - e.changedTouches[0].screenX;
+
+    if (res !== 0) res < 0 ? handlerPrev() : handlerNext();
+    setPositionStartSwipe(0);
+  };
+  const startSwipe = (e) => {
+    setPositionStartSwipe(e.changedTouches[0].screenX);
+  };
+  const DragStart = (e) => {
+    setPositionStartSwipe(e.clientX);
+    setStartTimeSwipe(new Date());
+  };
+  const DragEnd = (e) => {
+    const time = (new Date() - startTimeSwipe) / 1000;
+
+    if (time > 0.15) {
+      positionStartSwipe < e.clientX ? handlerPrev() : handlerNext();
+    }
+    setPositionStartSwipe(0);
+  };
+
   return (
     <section className="development ">
       <div className="conteiner ">
-        <div className="development__conteiner">
+        <div
+          className="development__conteiner"
+          onTouchEnd={swipeSlider}
+          onTouchStart={startSwipe}
+        >
           <h2 className="title development__title">
             Этапы разработки интернет-магазина
           </h2>
@@ -68,7 +97,13 @@ const AboutDevelopment = () => {
             }}
           >
             {initialState.map((item, index) => (
-              <div className="development__item" key={index} ref={itemWidthRef}>
+              <div
+                className="development__item"
+                key={index}
+                ref={itemWidthRef}
+                onMouseDown={DragStart}
+                onMouseUp={DragEnd}
+              >
                 <div className="development__item-content">
                   <h3 className="development__item-title">{item.title}</h3>
                   <p className="development__item-text">{item.text}</p>

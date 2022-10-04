@@ -84,8 +84,6 @@ const Exemples = () => {
   );
 
   const swipeSlider = (e) => {
-    console.log(e.changedTouches[0].screenX, "end");
-    console.log(positionStartSwipe, "start");
     const res = positionStartSwipe - e.changedTouches[0].screenX;
     res < 0 ? handlerPrev() : handlerNext();
   };
