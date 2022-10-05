@@ -7,6 +7,7 @@ import ScanBarcode from "../../images/aboutDevelopers/ScanBarcode.png";
 import TopRight from "../../images/aboutDevelopers/TopRight.png";
 import BtnSlider from "./BtnSlider";
 import { UseSlider } from "../../hooks/UseSlider";
+import { useEffect } from "react";
 
 const AboutDevelopment = () => {
   const initialState = [
@@ -46,7 +47,7 @@ const AboutDevelopment = () => {
       text: "Для того, чтобы онлайн-магазин приносил выгоду, перед его запуском необходимо провести анализ других предложений рынка, оценить конкурентов и найти наиболее удобное решение. ",
     },
   ];
-
+  const [sizeSwipe, setSizeSwipe] = useState(100);
   const itemWidthRef = useRef();
   const [transition, positionSlider, handlerPrev, handlerNext] = UseSlider(
     itemWidthRef,
@@ -54,28 +55,41 @@ const AboutDevelopment = () => {
     initialState.length - 1
   );
   const [positionStartSwipe, setPositionStartSwipe] = useState(0);
-  const [startTimeSwipe, setStartTimeSwipe] = useState(0);
-
-  const swipeSlider = (e) => {
-    const res = positionStartSwipe - e.changedTouches[0].screenX;
-
-    if (res !== 0) res < 0 ? handlerPrev() : handlerNext();
-    setPositionStartSwipe(0);
-  };
+  useEffect(() => {
+    window.innerWidth < 480 ? setSizeSwipe(50) : setSizeSwipe(100);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [window.innerWidth]);
   const startSwipe = (e) => {
     setPositionStartSwipe(e.changedTouches[0].screenX);
   };
-  const DragStart = (e) => {
-    setPositionStartSwipe(e.clientX);
-    setStartTimeSwipe(new Date());
-  };
-  const DragEnd = (e) => {
-    const time = (new Date() - startTimeSwipe) / 1000;
-
-    if (time > 0.15) {
-      positionStartSwipe < e.clientX ? handlerPrev() : handlerNext();
+  const swipeSlider = (e) => {
+    const res = positionStartSwipe - e.changedTouches[0].screenX;
+    console.log(sizeSwipe, "sizeSwipe");
+    if (res !== 0) {
+      if (res > sizeSwipe) {
+        handlerNext();
+      } else if (res < -sizeSwipe) {
+        handlerPrev();
+      }
     }
     setPositionStartSwipe(0);
+  };
+
+  const DragStart = (e) => {
+    setPositionStartSwipe(e.clientX);
+  };
+  const DragEnd = (e) => {
+    if (
+      positionStartSwipe + 250 < e.clientX &&
+      positionStartSwipe !== e.clientX
+    ) {
+      handlerPrev();
+    } else if (
+      positionStartSwipe - e.clientX >= 250 &&
+      positionStartSwipe !== e.clientX
+    ) {
+      handlerNext();
+    }
   };
 
   return (

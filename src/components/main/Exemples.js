@@ -82,14 +82,21 @@ const Exemples = () => {
     14,
     initialStateMob.length / 4
   );
-
-  const swipeSlider = (e) => {
-    const res = positionStartSwipe - e.changedTouches[0].screenX;
-    res < 0 ? handlerPrev() : handlerNext();
-  };
   const startSwipe = (e) => {
     setPositionStartSwipe(e.changedTouches[0].screenX);
   };
+  const swipeSlider = (e) => {
+    const res = positionStartSwipe - e.changedTouches[0].screenX;
+    if (res !== 0) {
+      if (res > 50) {
+        handlerNext();
+      } else if (res < -50) {
+        handlerPrev();
+      }
+    }
+    setPositionStartSwipe(0);
+  };
+
   useEffect(() => {
     setScreenWidth(window.innerWidth);
     // eslint-disable-next-line react-hooks/exhaustive-deps
