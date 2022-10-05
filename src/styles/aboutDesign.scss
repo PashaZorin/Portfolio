@@ -8,6 +8,10 @@
     padding: 43px 0;
   }
   &__content {
+    &-conteiner {
+      overflow: hidden;
+    }
+    overflow: hidden;
     &::after {
       @media (max-width: 1470px) {
         content: "";
@@ -27,6 +31,44 @@
       margin-bottom: 17px;
     }
   }
+  &__transcription {
+    border-left: 1px solid #000000;
+    padding-left: 40px;
+    transform: translateX(57px);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 175%;
+    &-conteiner {
+      padding: 30px 70px 54px 0;
+      border-radius: 0 0 15px 15px;
+      position: fixed;
+      //opacity: 0;
+      //z-index: -1;
+      user-select: none;
+
+      //-moz-user-select: none;
+
+      //-ms-user-select: none;
+      background-color: $white;
+      transition: all 0.5s;
+      transform: translate(0px, -160px);
+      @media (max-width: 480px) {
+        padding-left: 25px;
+      }
+      &.open {
+        @media (max-width: 480px) {
+          //padding-left: 22px;
+        }
+        transform: translate(0px, 0px);
+        position: relative;
+        opacity: 1;
+        //z-index: 1;
+        margin-top: -1px;
+        margin-bottom: 10px;
+        display: block;
+      }
+    }
+  }
   &__item {
     background-color: $white;
     padding: 14px 24px 14px 96px;
@@ -34,9 +76,14 @@
     font-size: 18px;
     line-height: 175%;
     border-radius: 15px;
-
+    transition: 0.5s;
     overflow: hidden;
     margin-bottom: 10px;
+    z-index: 5;
+    &.open {
+      margin-bottom: 0;
+      border-radius: 15px 15px 0 0;
+    }
     @media (max-width: 480px) {
       padding: 14px 24px 14px 36px;
       font-size: 17px;
@@ -79,26 +126,6 @@
         &::before {
           background-color: $primary;
         }
-      }
-    }
-
-    &-transcription {
-      border-left: 1px solid #000000;
-      padding-left: 40px;
-      display: none;
-      transition: all 1s;
-      @media (max-width: 480px) {
-        padding-left: 25px;
-      }
-      &.open {
-        @media (max-width: 480px) {
-          padding-left: 22px;
-          transform: translateX(-22px);
-          margin-top: 19px;
-        }
-        transform: translateX(-40px);
-        margin-top: 41px;
-        display: block;
       }
     }
 
