@@ -88,9 +88,9 @@ const Exemples = () => {
   const swipeSlider = (e) => {
     const res = positionStartSwipe - e.changedTouches[0].screenX;
     if (res !== 0) {
-      if (res > 50) {
+      if (res > 75) {
         handlerNext();
-      } else if (res < -50) {
+      } else if (res < -75) {
         handlerPrev();
       }
     }

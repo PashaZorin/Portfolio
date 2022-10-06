@@ -49,14 +49,14 @@ const AboutDevelopment = () => {
   ];
   const [sizeSwipe, setSizeSwipe] = useState(100);
   const itemWidthRef = useRef();
+  const [positionStartSwipe, setPositionStartSwipe] = useState(0);
   const [transition, positionSlider, handlerPrev, handlerNext] = UseSlider(
     itemWidthRef,
     25,
     initialState.length - 1
   );
-  const [positionStartSwipe, setPositionStartSwipe] = useState(0);
   useEffect(() => {
-    window.innerWidth < 480 ? setSizeSwipe(50) : setSizeSwipe(100);
+    window.innerWidth < 480 ? setSizeSwipe(75) : setSizeSwipe(100);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [window.innerWidth]);
   const startSwipe = (e) => {
