@@ -1,20 +1,39 @@
 import { Formik, Form, Field, FastField } from "formik";
-import React from "react";
+import React, { useRef } from "react";
 import * as Yup from "yup";
 import "../../styles/discussProject.scss";
 import PhoneCall from "../../images/discussProject/PhoneCall.png";
 import PostpaidMobile from "../../images/discussProject/PostpaidMobile.png";
+import emailjs from "emailjs-com";
 
-import Button from "../Button";
 const DiscussProject = () => {
   const initialValues = {
     name: "",
     phone: "",
     email: "",
   };
+  const formElem = useRef();
+
   const onSubmit = (value, { resetForm }) => {
-    console.log(value);
-    resetForm();
+    try {
+      emailjs
+        .sendForm(
+          "service_zxx06uq",
+          "template_5sa8ndr",
+          formElem.current,
+          "crPhTs9u8Da1XGbYe"
+        )
+        .then(
+          (result) => {
+            resetForm();
+          },
+          (error) => {
+            console.error(error.text);
+          }
+        );
+    } catch (error) {
+      console.error(error, "err");
+    }
   };
   const validationSchema = Yup.object().shape({
     name: Yup.string()
@@ -44,7 +63,7 @@ const DiscussProject = () => {
             onSubmit={onSubmit}
             initialValues={initialValues}
           >
-            <Form className="discuss__form">
+            <Form className="discuss__form" ref={formElem}>
               <FastField name="name">
                 {({ field, meta }) => {
                   return (
@@ -90,11 +109,9 @@ const DiscussProject = () => {
                   );
                 }}
               </FastField>
-              <Button
-                text="Отправить"
-                type="submit"
-                className="discuss__form-button"
-              />
+              <button type="submit" className="button discuss__form-button">
+                Отправить
+              </button>
             </Form>
           </Formik>
         </div>

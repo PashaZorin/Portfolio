@@ -5,7 +5,7 @@ const HeaderMenu = () => {
   const [menuMobActive, setMenuMobActive] = useState(false);
   const initialState = [
     { text: "Услуги", componentsId: "design" },
-    { text: "Портфолио", componentsId: "https://shopping-ochre.vercel.app/" },
+    //{ text: "Портфолио", componentsId: "" },
     { text: "Этапы", componentsId: "development" },
     { text: "Дизайнеры", componentsId: "exemples" },
   ];
