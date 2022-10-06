@@ -21,7 +21,7 @@ const MoreInformations = () => {
             для стартапа, обратитесь к нашему веб дизайнеру. За выгодную цену и
             короткий период времени, он поможет визуализировать ваш веб проект.
           </p>
-          <Button text="Оставить заявку" />
+          <Button text="Оставить заявку" url="discuss" />
         </div>
         <div className="informations__images">
           <img

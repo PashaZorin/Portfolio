@@ -32,7 +32,7 @@ const DiscussProject = () => {
   });
 
   return (
-    <section className="discuss">
+    <section className="discuss" id="discuss">
       <div className=" discuss__conteiner ">
         <h2 className="title">Обсудить проект</h2>
         <h3 className=" discuss__subtitle">

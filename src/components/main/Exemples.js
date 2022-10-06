@@ -109,7 +109,7 @@ const Exemples = () => {
   }, [window.innerWidth]);
 
   return (
-    <section className="exemples">
+    <section className="exemples" id="exemples">
       <div className="conteiner">
         <h2 className="title">Примеры онлайн-магазинов</h2>
         <div

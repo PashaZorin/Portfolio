@@ -105,7 +105,7 @@ const AboutDevelopment = () => {
   };
 
   return (
-    <section className="development ">
+    <section className="development " id="development">
       <div className="conteiner ">
         <div
           className="development__conteiner"
@@ -136,7 +136,7 @@ const AboutDevelopment = () => {
                   <p className="development__item-text">{item.text}</p>
                 </div>
                 <div className="development__item-images">
-                  <img src={item.src} alt={item.src} />
+                  <img src={item.src} alt={item.src} draggable="false" />
                 </div>
               </div>
             ))}

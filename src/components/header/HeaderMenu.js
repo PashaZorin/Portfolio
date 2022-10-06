@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import Button from "../Button";
-
+import { Link } from "react-scroll";
 const HeaderMenu = () => {
   const [menuMobActive, setMenuMobActive] = useState(false);
-
+  const initialState = [
+    { text: "Услуги", componentsId: "design" },
+    { text: "Портфолио", componentsId: "https://shopping-ochre.vercel.app/" },
+    { text: "Этапы", componentsId: "development" },
+    { text: "Дизайнеры", componentsId: "exemples" },
+  ];
   return (
     <menu className="header__menu-conteiner">
       <ul
@@ -13,12 +18,22 @@ const HeaderMenu = () => {
             : ["header__menu", "header__menu-active"].join(" ")
         }
       >
-        <li className="header__menu-item">Услуги</li>
-        <li>Портфолио</li>
-        <li>Этапы</li>
-        <li>Дизайнеры</li>
+        {initialState.map((item, index) => {
+          return (
+            <li key={index} className="header__menu-item">
+              <Link
+                activeClass="active"
+                to={item.componentsId}
+                spy={true}
+                smooth={true}
+              >
+                {item.text}
+              </Link>
+            </li>
+          );
+        })}
       </ul>
-      <Button text="Заказать" className="header__menu-btn" />
+      <Button text="Заказать" className="header__menu-btn" url="discuss" />
       <div
         className={
           !menuMobActive

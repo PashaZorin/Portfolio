@@ -47,7 +47,7 @@ const AboutDesign = () => {
   };
 
   return (
-    <section className="design">
+    <section className="design" id="design">
       <div className="conteiner">
         <h2 className="design__title title">
           Что входит в услугу по созданию дизайна интернет-магазина?

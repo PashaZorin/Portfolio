@@ -18,7 +18,7 @@ const AboutPage = () => {
             кабинета - от фирменного стиля до пользовательского интерфейса в
             сжатые сроки с командой Virtual Designers
           </p>
-          <Button text="заказать" />
+          <Button text="заказать" url="discuss" />
         </div>
         <div className="about__images">
           <img src={Cart} alt="market" className="about__images-market" />

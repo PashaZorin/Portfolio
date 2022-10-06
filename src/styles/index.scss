@@ -6,8 +6,13 @@ body {
   margin: 0 auto;
   font-weight: 18px;
 }
+a {
+  color: $white;
+}
 .button {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: $green;
   border-radius: 5px;
   border: 2px solid transparent;

@@ -42,7 +42,7 @@
       @media (min-width: 1024px) {
         padding-right: 20px;
       }
-      @media (max-width: 1000px) {
+      @media (max-width: 1024px) {
         width: 100%;
       }
       @media (max-width: 768px) {
@@ -53,7 +53,7 @@
     }
     &-additional {
       min-width: 133px;
-      cursor: pointer;
+      //cursor: pointer;
     }
   }
   &__contacts {
@@ -61,7 +61,7 @@
       display: flex;
       gap: 10px;
       margin-bottom: 13px;
-      cursor: pointer;
+      //cursor: pointer;
       p {
         @media (max-width: 390px) {
           font-size: 15px;
