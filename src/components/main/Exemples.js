@@ -75,7 +75,8 @@ const Exemples = () => {
 
   const itemWidthRef = useRef();
   const [screenWidth, setScreenWidth] = useState(0);
-  const [positionStartSwipe, setPositionStartSwipe] = useState(0);
+  const [positionStartSwipeX, setPositionStartSwipeX] = useState(0);
+  const [positionStartSwipeY, setPositionStartSwipeY] = useState(0);
 
   const [transition, positionSlider, handlerPrev, handlerNext] = UseSlider(
     itemWidthRef,
@@ -83,18 +84,23 @@ const Exemples = () => {
     initialStateMob.length / 4
   );
   const startSwipe = (e) => {
-    setPositionStartSwipe(e.changedTouches[0].screenX);
+    setPositionStartSwipeX(e.changedTouches[0].screenX);
+    setPositionStartSwipeY(e.changedTouches[0].screenY);
   };
   const swipeSlider = (e) => {
-    const res = positionStartSwipe - e.changedTouches[0].screenX;
-    if (res !== 0) {
-      if (res > 75) {
+    const PositionEndSwipeX = e.changedTouches[0].screenX;
+    const PositionEndSwipeY = e.changedTouches[0].screenY;
+
+    const resX = positionStartSwipeX - PositionEndSwipeX;
+    const resY = positionStartSwipeY - PositionEndSwipeY;
+
+    if (Math.abs(resX) > Math.abs(resY)) {
+      if (resX > 75) {
         handlerNext();
-      } else if (res < -75) {
+      } else if (resX < -75) {
         handlerPrev();
       }
     }
-    setPositionStartSwipe(0);
   };
 
   useEffect(() => {

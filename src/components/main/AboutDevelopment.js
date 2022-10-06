@@ -49,44 +49,56 @@ const AboutDevelopment = () => {
   ];
   const [sizeSwipe, setSizeSwipe] = useState(100);
   const itemWidthRef = useRef();
-  const [positionStartSwipe, setPositionStartSwipe] = useState(0);
+  const [positionStartSwipeX, setPositionStartSwipeX] = useState(0);
+  const [positionStartSwipeY, setPositionStartSwipeY] = useState(0);
   const [transition, positionSlider, handlerPrev, handlerNext] = UseSlider(
     itemWidthRef,
     25,
     initialState.length - 1
   );
   useEffect(() => {
-    window.innerWidth < 480 ? setSizeSwipe(75) : setSizeSwipe(100);
+    window.innerWidth < 480 ? setSizeSwipe(60) : setSizeSwipe(100);
+    if (window.innerWidth < 400) {
+      setSizeSwipe(50);
+    }
+    if (window.innerWidth < 350) {
+      setSizeSwipe(30);
+    }
+    //window.innerWidth < 400 ? setSizeSwipe(50) : setSizeSwipe(100);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [window.innerWidth]);
   const startSwipe = (e) => {
-    setPositionStartSwipe(e.changedTouches[0].screenX);
+    setPositionStartSwipeX(e.changedTouches[0].screenX);
+    setPositionStartSwipeY(e.changedTouches[0].screenY);
   };
   const swipeSlider = (e) => {
-    const res = positionStartSwipe - e.changedTouches[0].screenX;
-    console.log(sizeSwipe, "sizeSwipe");
-    if (res !== 0) {
-      if (res > sizeSwipe) {
+    const PositionEndSwipeX = e.changedTouches[0].screenX;
+    const PositionEndSwipeY = e.changedTouches[0].screenY;
+
+    const resX = positionStartSwipeX - PositionEndSwipeX;
+    const resY = positionStartSwipeY - PositionEndSwipeY;
+
+    if (Math.abs(resX) > Math.abs(resY)) {
+      if (resX > sizeSwipe) {
         handlerNext();
-      } else if (res < -sizeSwipe) {
+      } else if (resX < -sizeSwipe) {
         handlerPrev();
       }
     }
-    setPositionStartSwipe(0);
   };
 
   const DragStart = (e) => {
-    setPositionStartSwipe(e.clientX);
+    setPositionStartSwipeX(e.clientX);
   };
   const DragEnd = (e) => {
     if (
-      positionStartSwipe + 250 < e.clientX &&
-      positionStartSwipe !== e.clientX
+      positionStartSwipeX + 250 < e.clientX &&
+      positionStartSwipeX !== e.clientX
     ) {
       handlerPrev();
     } else if (
-      positionStartSwipe - e.clientX >= 250 &&
-      positionStartSwipe !== e.clientX
+      positionStartSwipeX - e.clientX >= 250 &&
+      positionStartSwipeX !== e.clientX
     ) {
       handlerNext();
     }
@@ -97,8 +109,9 @@ const AboutDevelopment = () => {
       <div className="conteiner ">
         <div
           className="development__conteiner"
-          onTouchEnd={swipeSlider}
           onTouchStart={startSwipe}
+          onTouchEnd={swipeSlider}
+          //onTouchMove={swipeSlider}
         >
           <h2 className="title development__title">
             Этапы разработки интернет-магазина
