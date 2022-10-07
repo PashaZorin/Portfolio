@@ -15,6 +15,10 @@ const DiscussProject = () => {
     email: "",
   };
   const [loading, setLoading] = useState(false);
+  const [messegeForUser, setMessegeForUser] = useState({
+    show: false,
+    text: "",
+  });
 
   const formElem = useRef();
 
@@ -32,16 +36,25 @@ const DiscussProject = () => {
           (result) => {
             resetForm();
             setLoading(false);
+            toggleMessege("Спасибо за отклик");
           },
           (error) => {
             console.error(error.text);
             setLoading(false);
+            toggleMessege("Что-то пошло не так(");
           }
         );
     } catch (error) {
       console.error(error, "err");
       setLoading(false);
+      toggleMessege("Что-то пошло не так(");
     }
+  };
+  const toggleMessege = (text) => {
+    setMessegeForUser({ show: true, text });
+    setTimeout(() => {
+      setMessegeForUser({ show: false, text: "" });
+    }, 1500);
   };
   const validationSchema = Yup.object().shape({
     name: Yup.string()
@@ -60,6 +73,11 @@ const DiscussProject = () => {
 
   return (
     <section className="discuss" id="discuss">
+      <div
+        className={` discuss__messege ${messegeForUser.show ? "show" : ""}  `}
+      >
+        <p>{messegeForUser.text}</p>
+      </div>
       <div className=" discuss__conteiner ">
         <h2 className="title">Обсудить проект</h2>
         <h3 className=" discuss__subtitle">

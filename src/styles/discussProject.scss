@@ -7,6 +7,18 @@
   @media (max-width: 1024px) {
     padding: 42px 0;
   }
+  &__messege {
+    &.show {
+      display: inline-block;
+      padding: 20px;
+      background: $green;
+      border-radius: 10px;
+      position: absolute;
+      color: $white;
+      right: 3%;
+      font-size: 20px;
+    }
+  }
 
   &__conteiner {
     width: 470px;
@@ -70,8 +82,8 @@
       padding: 19px 14px;
       border-radius: 10px;
       color: #939393;
-      &:active &:focus {
-      }
+      //&:active &:focus {
+      //}
     }
     &-input:focus {
       border: 2px solid #6eb1fb;
