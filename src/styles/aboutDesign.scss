@@ -38,32 +38,29 @@
     font-weight: 400;
     font-size: 18px;
     line-height: 175%;
+    @media (max-width: 480px) {
+      transform: translateX(15px);
+      padding-left: 20px;
+    }
     &-conteiner {
       padding: 30px 70px 54px 0;
       border-radius: 0 0 15px 15px;
       position: fixed;
-      //opacity: 0;
-      //z-index: -1;
+
       user-select: none;
 
-      //-moz-user-select: none;
-
-      //-ms-user-select: none;
       background-color: $white;
       transition: all 0.5s;
       transform: translate(0px, -160px);
       @media (max-width: 480px) {
-        padding-left: 25px;
+        padding-right: 25px;
       }
       &.open {
         @media (max-width: 480px) {
-          //padding-left: 22px;
         }
-        transform: translate(0px, 0px);
+        transform: translate(0px, -1px);
         position: relative;
         opacity: 1;
-        //z-index: 1;
-        margin-top: -1px;
         margin-bottom: 10px;
         display: block;
       }
