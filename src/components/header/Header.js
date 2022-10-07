@@ -27,7 +27,6 @@ const Header = () => {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [window.pageYOffset]);
-  console.log(scrollPosition, "scrollPosition");
   return (
     <header
       className={headerFixed ? "header show" : "header "}

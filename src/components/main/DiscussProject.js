@@ -5,6 +5,8 @@ import "../../styles/discussProject.scss";
 import PhoneCall from "../../images/discussProject/PhoneCall.png";
 import PostpaidMobile from "../../images/discussProject/PostpaidMobile.png";
 import emailjs from "emailjs-com";
+import { useState } from "react";
+import BeatLoader from "react-spinners/BeatLoader";
 
 const DiscussProject = () => {
   const initialValues = {
@@ -12,10 +14,13 @@ const DiscussProject = () => {
     phone: "",
     email: "",
   };
+  const [loading, setLoading] = useState(false);
+
   const formElem = useRef();
 
   const onSubmit = (value, { resetForm }) => {
     try {
+      setLoading(true);
       emailjs
         .sendForm(
           "service_zxx06uq",
@@ -26,13 +31,16 @@ const DiscussProject = () => {
         .then(
           (result) => {
             resetForm();
+            setLoading(false);
           },
           (error) => {
             console.error(error.text);
+            setLoading(false);
           }
         );
     } catch (error) {
       console.error(error, "err");
+      setLoading(false);
     }
   };
   const validationSchema = Yup.object().shape({
@@ -110,7 +118,7 @@ const DiscussProject = () => {
                 }}
               </FastField>
               <button type="submit" className="button discuss__form-button">
-                Отправить
+                {!loading ? "Отправить" : <BeatLoader color="#fff" />}
               </button>
             </Form>
           </Formik>
