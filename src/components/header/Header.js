@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "../vectors/Logo";
 import HeaderMenu from "./HeaderMenu";
 import "../../styles/header.scss";
@@ -25,11 +25,19 @@ const Header = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [window.pageYOffset]);
+  console.log(scrollPosition, "scrollPosition");
   return (
-    <header className={headerFixed ? "header show" : "header "}>
+    <header
+      className={headerFixed ? "header show" : "header "}
+      style={scrollPosition > 130 ? { padding: 8 } : { padding: 18 }}
+    >
       <div className="header__conteiner conteiner">
-        <Logo className="header__logo" />
+        <Logo
+          className="header__logo"
+          style={scrollPosition > 130 ? { height: 30 } : { height: 59 }}
+        />
         <HeaderMenu />
       </div>
     </header>

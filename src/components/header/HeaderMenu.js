@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../Button";
 import { Link } from "react-scroll";
 const HeaderMenu = () => {
@@ -9,7 +9,11 @@ const HeaderMenu = () => {
     { text: "Этапы", componentsId: "development" },
     { text: "Дизайнеры", componentsId: "exemples" },
   ];
-
+  useEffect(() => {
+    menuMobActive
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "auto");
+  }, [menuMobActive]);
   return (
     <menu className="header__menu-conteiner">
       <ul
