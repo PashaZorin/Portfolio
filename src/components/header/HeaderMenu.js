@@ -5,10 +5,11 @@ const HeaderMenu = () => {
   const [menuMobActive, setMenuMobActive] = useState(false);
   const initialState = [
     { text: "Услуги", componentsId: "design" },
-    //{ text: "Портфолио", componentsId: "" },
+    { text: "Портфолио", componentsId: "" },
     { text: "Этапы", componentsId: "development" },
     { text: "Дизайнеры", componentsId: "exemples" },
   ];
+
   return (
     <menu className="header__menu-conteiner">
       <ul
@@ -26,6 +27,7 @@ const HeaderMenu = () => {
                 to={item.componentsId}
                 spy={true}
                 smooth={true}
+                onClick={() => setMenuMobActive((prev) => !prev)}
               >
                 {item.text}
               </Link>
