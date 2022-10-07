@@ -53,8 +53,8 @@ const DiscussProject = () => {
   const toggleMessege = (text) => {
     setMessegeForUser({ show: true, text });
     setTimeout(() => {
-      setMessegeForUser({ show: false, text: "" });
-    }, 1500);
+      setMessegeForUser({ show: false });
+    }, 2000);
   };
   const validationSchema = Yup.object().shape({
     name: Yup.string()
