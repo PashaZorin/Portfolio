@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, memo } from "react";
 import Button from "../Button";
 import { Link } from "react-scroll";
 import Arrow from "../vectors/Arrow";
@@ -25,24 +25,25 @@ const HeaderMenu = (scrollPosition) => {
   }, [menuMobActive]);
   useEffect(() => {
     if (portfolioIsOpen) {
-      return toggleList();
+      window.dispatchEvent(new Event("click"));
+      setPortfolioIsOpen((prev) => !prev);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [scrollPosition]);
 
-  const togglePortfolioList = () => {
+  const closeList = () => {
     setPortfolioIsOpen((prev) => !prev);
-    setTimeout(() => {
-      console.log("setTimeout", "setTimeout");
-      window.addEventListener("click", toggleList);
-    }, 100);
+    return window.removeEventListener("click", closeList);
   };
-  const toggleList = () => {
-    console.log(portfolioIsOpen, "portfolioIsOpen");
+  const openPortfolioList = () => {
     if (!portfolioIsOpen) {
+      setTimeout(() => {
+        window.addEventListener("click", closeList);
+      }, 100);
+    } else {
       setPortfolioIsOpen((prev) => !prev);
-      console.log("toggleList", "toggleList");
-      return window.removeEventListener("click", toggleList);
     }
+    setPortfolioIsOpen((prev) => !prev);
   };
 
   return (
@@ -55,7 +56,7 @@ const HeaderMenu = (scrollPosition) => {
         }
       >
         <div className="header__portfolio-conteiner">
-          <div className="header__portfolio" onClick={togglePortfolioList}>
+          <div className="header__portfolio" onClick={openPortfolioList}>
             <span>Портфолио</span>
             <Arrow
               className={`header__portfolio-errow  ${
@@ -70,11 +71,7 @@ const HeaderMenu = (scrollPosition) => {
           >
             {portfolio.map((item, index) => {
               return (
-                <li
-                  className="header__portfolio-item"
-                  key={index}
-                  //onClick={(e) => console.log(e, "e")}
-                >
+                <li className="header__portfolio-item" key={index}>
                   <a href={item.url} target="blank">
                     {item.text}
                   </a>
@@ -114,4 +111,4 @@ const HeaderMenu = (scrollPosition) => {
   );
 };
 
-export default HeaderMenu;
+export default memo(HeaderMenu);
