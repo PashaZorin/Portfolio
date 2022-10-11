@@ -11,12 +11,12 @@ const Footer = () => {
   const initialStateMessengers = [
     { src: instagram, url: "https://www.instagram.com/" },
     { src: facebook, url: "https://uk-ua.facebook.com/" },
-    { src: telegram, url: "https://web.telegram.org/z/" },
-    { src: viber, url: "https://account.viber.com/ru/login" },
+    { src: telegram, url: "https://t.me/Pavel_ZRN" },
+    { src: viber, url: "viber://chat?number=+380681589596" },
     { src: whatsApp, url: "https://web.whatsapp.com/" },
   ];
   const initialStateContacts = [
-    "Валерия : +380505859409",
+    "Валерия : +380638882689",
     "Анна: +380505859409",
     "Валерия: +380505859409",
   ];
@@ -32,7 +32,7 @@ const Footer = () => {
                 return (
                   <li className="footer__contacts-item" key={index}>
                     <img src={viber} alt="https://account.viber.com/ru/login" />
-                    <a href="https://account.viber.com/ru/login" target="blank">
+                    <a href="viber://chat?number=+380681589596" target="blank">
                       {item}
                     </a>
                   </li>
@@ -52,11 +52,8 @@ const Footer = () => {
             </ul>
           </div>
           <div className="footer__information-additional">
-            <a
-              href="https://accounts.google.com/AccountChooser/signinchooser?service=mail&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&flowName=GlifWebSignIn&flowEntry=AccountChooser"
-              target="blank"
-            >
-              hr@dv-s.com
+            <a href="mailto:zorin5226@gmail.com" target="blank">
+              hr@gmail.com
             </a>
           </div>
         </div>

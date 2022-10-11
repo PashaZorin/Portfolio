@@ -10,9 +10,11 @@ const HeaderMenu = () => {
     { text: "Дизайнеры", componentsId: "exemples" },
   ];
   useEffect(() => {
-    menuMobActive
-      ? (document.body.style.overflow = "hidden")
-      : (document.body.style.overflow = "auto");
+    if (window.innerWidth < 678) {
+      menuMobActive
+        ? (document.body.style.overflow = "hidden")
+        : (document.body.style.overflow = "auto");
+    }
   }, [menuMobActive]);
   return (
     <menu className="header__menu-conteiner">
