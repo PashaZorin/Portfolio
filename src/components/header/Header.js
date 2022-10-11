@@ -6,9 +6,7 @@ import "../../styles/header.scss";
 const Header = () => {
   const [headerFixed, setHeaderFixed] = useState(true);
   const [scrollPosition, setScrollPosition] = useState(0);
-  const [innerWidth, setInnerWidth] = useState(0);
 
-  useEffect(() => setInnerWidth(window.innerWidth), [window.innerWidth]);
   const handleScroll = () => {
     if (window.pageYOffset > 95) {
       if (scrollPosition < window.pageYOffset) {
@@ -36,7 +34,9 @@ const Header = () => {
       style={scrollPosition > 130 ? { padding: 8 } : { padding: 18 }}
     >
       <div
-        className={`header__conteiner ${innerWidth > 1120 ? "conteiner" : ""} `}
+        className={`header__conteiner ${
+          window.innerWidth > 1120 ? "conteiner" : ""
+        } `}
       >
         <Logo
           className="header__logo"

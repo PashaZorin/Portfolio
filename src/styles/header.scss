@@ -22,10 +22,11 @@
     gap: 7px;
     z-index: 5;
     cursor: pointer;
-
-    &-conteiner {
-    }
     &-errow {
+      @media (max-width: 768px) {
+        width: 26px;
+      }
+
       width: 16px;
       fill: $white;
       transition: 0.5s;
@@ -41,6 +42,10 @@
       transition: 0.3s;
       pointer-events: none;
       border-radius: 5px 5px 0 0;
+      @media (max-width: 768px) {
+        font-size: 30px;
+        padding: 0 0 10px 10px;
+      }
       li {
         @media (min-width: 768) {
           padding-right: 65px;
@@ -50,6 +55,14 @@
         pointer-events: all;
         opacity: 1;
         transform: translateY(0px);
+        @media (max-width: 768px) {
+          transform: translateY(30px);
+        }
+      }
+    }
+    &-item {
+      @media (max-width: 768px) {
+        margin: 0 0 30px 30px !important ;
       }
     }
   }
@@ -202,19 +215,19 @@
     }
     @media (max-width: 768px) {
       &-active {
-        display: flex;
         transform: rotateX(0);
         opacity: 1;
         transition: all 0.7s;
         z-index: 1;
       }
+      font-size: 35px;
+      gap: 15px;
       transform: rotateX(270deg);
       z-index: 0;
       opacity: 0;
       flex-direction: column-reverse;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
+      justify-content: start;
+      padding-top: 150px;
       position: absolute;
       background: $primary;
       width: 100%;
