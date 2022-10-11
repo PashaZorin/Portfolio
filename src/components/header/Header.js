@@ -37,7 +37,7 @@ const Header = () => {
           className="header__logo"
           style={scrollPosition > 130 ? { height: 30 } : { height: 59 }}
         />
-        <HeaderMenu />
+        <HeaderMenu scrollPosition={scrollPosition} />
       </div>
     </header>
   );
