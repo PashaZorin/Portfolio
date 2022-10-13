@@ -20,8 +20,22 @@
     background-color: $primary;
     padding: 10px;
     gap: 7px;
+    border-radius: 5px;
+    border: 2px solid transparent;
     z-index: 5;
-    cursor: pointer;
+    transition: 0.5s;
+    @media (min-width: 768px) {
+      &:hover {
+        cursor: pointer;
+        border: 2px solid $green;
+
+        background-color: $green;
+      }
+      &:active {
+        border: 2px solid $white;
+      }
+    }
+
     &-errow {
       @media (max-width: 768px) {
         width: 26px;
@@ -60,7 +74,11 @@
         }
       }
     }
+
     &-item {
+      @media (min-width: 768px) {
+        width: 143px;
+      }
       @media (max-width: 768px) {
         margin: 0 0 30px 30px !important ;
       }
@@ -77,6 +95,9 @@
   &__conteiner {
     display: flex;
     justify-content: space-between;
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+      width: 91%;
+    }
   }
   &__menu-btn {
     width: 170px;
@@ -119,11 +140,15 @@
     }
   }
   &__dots {
+    @media (min-width: 768px) {
+      position: absolute;
+    }
     position: relative;
     cursor: pointer;
     z-index: 2;
     transition: all 0.4s;
     width: 40px;
+
     span,
     &::after,
     &::before {
@@ -203,11 +228,6 @@
         &:active {
           border: 2px solid $white;
         }
-      }
-
-      @media (max-width: 1024px) {
-        padding: 5px;
-        gap: 0;
       }
     }
     @media (max-width: 1024px) {

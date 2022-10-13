@@ -28,16 +28,13 @@ const Header = () => {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [window.pageYOffset]);
+
   return (
     <header
       className={headerFixed ? "header show" : "header "}
       style={scrollPosition > 130 ? { padding: 8 } : { padding: 18 }}
     >
-      <div
-        className={`header__conteiner ${
-          window.innerWidth > 1120 ? "conteiner" : ""
-        } `}
-      >
+      <div className={"header__conteiner conteiner"}>
         <Logo
           className="header__logo"
           style={scrollPosition > 130 ? { height: 30 } : { height: 59 }}
