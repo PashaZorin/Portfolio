@@ -12,12 +12,13 @@ const HeaderMenu = (scrollPosition) => {
     { text: "Дизайнеры", componentsId: "exemples" },
   ];
   const portfolio = [
+    { url: "https://traders-pearl.vercel.app/", text: "traders" },
     { url: "https://shopping-ochre.vercel.app/", text: "shoping" },
-    { url: "https://pashazorin.github.io/tic-tac-toe/", text: "tic-tac-toe" },
     { url: "https://abz-agency-eight.vercel.app/", text: "testtask" },
   ];
   useEffect(() => {
     if (window.innerWidth < 678) {
+      console.log(menuMobActive);
       menuMobActive
         ? (document.body.style.overflow = "hidden")
         : (document.body.style.overflow = "auto");

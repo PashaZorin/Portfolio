@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import "../../styles/aboutDesign.scss";
+import React from "react";
+import "./aboutDesign.scss";
 import DesignItem from "./DesignItem";
 
 const AboutDesign = () => {
@@ -38,13 +38,6 @@ const AboutDesign = () => {
       id: 4,
     },
   ];
-  const [items, setItems] = useState(initialState);
-  const [render, setRender] = useState(false);
-
-  const setOpenItem = (id, e) => {
-    setRender(!render);
-    setItems(items, (items[id] = { ...items[id], isOpen: !items[id].isOpen }));
-  };
 
   return (
     <section className="design" id="design">
@@ -53,17 +46,11 @@ const AboutDesign = () => {
           Что входит в услугу по созданию дизайна интернет-магазина?
         </h2>
         <div className="design__content">
-          {items.map((el) => (
-            <DesignItem
-              key={el.id}
-              id={el.id}
-              title={el.title}
-              text={el.text}
-              isOpen={el.isOpen}
-              fun={setOpenItem}
-            />
+          {initialState.map((el) => (
+            <DesignItem key={el.id} title={el.title} text={el.text} />
           ))}
         </div>
+        <div></div>
       </div>
     </section>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import AboutDesign from "./AboutDesign";
+import AboutDesign from "./aboutDesign/AboutDesign";
 import AboutDevelopment from "./AboutDevelopment";
 import AboutPage from "./AboutPage";
 import DiscussProject from "./DiscussProject";
